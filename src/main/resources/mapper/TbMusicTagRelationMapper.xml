@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mine.music.mapper.TbMusicTagRelationMapper">
+  <resultMap id="BaseResultMap" type="com.mine.music.entity.TbMusicTagRelation">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="musicid" jdbcType="VARCHAR" property="musicid" />
+    <result column="tagid" jdbcType="VARCHAR" property="tagid" />
+    <result column="create" jdbcType="TIMESTAMP" property="create" />
+    <result column="update" jdbcType="TIMESTAMP" property="update" />
+    <result column="dr" jdbcType="INTEGER" property="dr" />
+  </resultMap>
+</mapper>

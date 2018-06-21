@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mine.music.mapper.TbUserMapper">
+  <resultMap id="BaseResultMap" type="com.mine.music.entity.TbUser">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="nickname" jdbcType="VARCHAR" property="nickname" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="gender" jdbcType="TINYINT" property="gender" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="img" jdbcType="VARCHAR" property="img" />
+    <result column="sign" jdbcType="VARCHAR" property="sign" />
+    <result column="create" jdbcType="TIMESTAMP" property="create" />
+    <result column="update" jdbcType="TIMESTAMP" property="update" />
+    <result column="dr" jdbcType="INTEGER" property="dr" />
+  </resultMap>
+</mapper>

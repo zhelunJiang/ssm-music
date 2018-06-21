@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:mvc="http://www.springframework.org/schema/mvc"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    
+    ">
+    <!--配置一个自定参数绑定-->
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+    <!--自定义参数绑定-->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <!--对自己写的convert进行注入-->
+        <property name="converters">
+            <list>
+                <bean class="com.mine.music.utils.DateConvert"></bean>
+            </list>
+        </property>
+    </bean>
+    <!-- 配置静态文件，返回html页面时不再被拦截-->
+    <mvc:default-servlet-handler/>
+    <!-- 注解驱动处理器 -->
+    <mvc:annotation-driven/>
+    <!-- 自动扫描包 -->
+    <context:component-scan base-package="com.mine.music.controller"></context:component-scan>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置默认编码 -->
+        <property name="defaultEncoding" value="utf-8"></property>
+        <!-- 上传图片最大大小5M-->
+        <property name="maxUploadSize" value="5242440"></property>
+    </bean>
+    <!-- 指向到成功的类里去，prefix前缀的意思，suffix后缀的意思，两个把路径拼起来 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+</beans>
